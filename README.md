@@ -42,7 +42,7 @@ This app uses **two** public Binance endpoints:
 | | |
 |---|---|
 | **Endpoint** | `GET /sapi/v1/pay/transactions` |
-| **Docs** | [binance-docs.github.io/apidocs/spot/en/#get-pay-trade-history](https://binance-docs.github.io/apidocs/spot/en/#get-pay-trade-history) |
+| **Docs** | [developers.binance.com/docs/pay/rest-api/Get-Pay-Trade-History](https://developers.binance.com/docs/pay/rest-api/Get-Pay-Trade-History) |
 | **Auth** | HMAC SHA-256 signed request (requires API key + secret) |
 | **Rate limit** | Uses the UID rate limit |
 | **Max range** | 90 days per request (`startTime` → `endTime`) |
@@ -77,7 +77,7 @@ This app uses **two** public Binance endpoints:
 | | |
 |---|---|
 | **Endpoint** | `GET /api/v3/ticker/price` |
-| **Docs** | [binance-docs.github.io/apidocs/spot/en/#symbol-price-ticker](https://binance-docs.github.io/apidocs/spot/en/#symbol-price-ticker) |
+| **Docs** | [developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints](https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints) |
 | **Auth** | None (public endpoint) |
 
 Used to fetch live BNB/USDT and BTC/USDT prices for the dashboard currency conversion.
