@@ -1,0 +1,25 @@
+# ── Environment / Secrets ──
+.env
+
+# ── Python ──
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.spec
+venv/
+.venv/
+
+# ── Exports (generated at runtime) ──
+exports/
+*.xlsx
+*.pdf
+
+# ── IDE ──
+.vscode/
+.idea/
+*.swp
+*.swo
+.cursor/
