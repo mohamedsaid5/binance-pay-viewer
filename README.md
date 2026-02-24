@@ -28,8 +28,8 @@ It fetches your Binance Pay transactions through the official REST API, displays
 | **Advanced filters** | Filter by amount range, currency, date, user name, or note text |
 | **Dashboard** | Summary cards + charts (time series, direction pie, top users bar chart) |
 | **Chart view** | Standalone line chart of transaction amounts over time |
-| **Auto-refresh** | Optional real-time polling every 30 seconds |
 | **Large date ranges** | Automatically splits requests into 90-day chunks (API limit) |
+| **Splash screen** | Binance-themed loading screen on startup |
 
 ---
 
