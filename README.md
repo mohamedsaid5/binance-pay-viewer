@@ -11,6 +11,23 @@ It fetches your Binance Pay transactions through the official REST API, displays
 
 ---
 
+## Screenshots
+
+| Main Table | Export Dialog |
+|:---:|:---:|
+| ![Main Table](screenshots/main_table.png) | ![Export](screenshots/export.png) |
+
+| Chart View | Advanced Filters |
+|:---:|:---:|
+| ![Chart](screenshots/chart.png) | ![Filters](screenshots/filters.png) |
+
+<p align="center">
+  <img src="screenshots/splash.png" alt="Splash Screen" width="300">
+  <br><em>Splash screen on startup</em>
+</p>
+
+---
+
 ## Features
 
 | Feature | Description |
@@ -18,7 +35,7 @@ It fetches your Binance Pay transactions through the official REST API, displays
 | **Auto-load** | Fetches the last 30 days of transactions on startup — no manual search needed |
 | **Binance-style UI** | Dark theme matching the real Binance Payment History page |
 | **Type filter** | Filter by All / Received / Paid |
-| **Period presets** | Today, Yesterday, Last 7/14/30/90 Days, or Custom date range |
+| **Period presets** | Today, Yesterday, Last 7/14/30/90 Days, This Month, Last Month, or Custom date range |
 | **Quick search** | Live search across all fields (name, amount, order ID, note…) |
 | **Order ID lookup** | Paste comma-separated 18-digit order IDs to find specific transactions |
 | **Export to PDF** | Professionally formatted landscape PDF with page numbers |
@@ -30,6 +47,7 @@ It fetches your Binance Pay transactions through the official REST API, displays
 | **Chart view** | Standalone line chart of transaction amounts over time |
 | **Large date ranges** | Automatically splits requests into 90-day chunks (API limit) |
 | **Splash screen** | Binance-themed loading screen on startup |
+| **Status bar** | Shows transaction count, last fetch time, and live conversion rates |
 
 ---
 
@@ -160,6 +178,12 @@ binance-pay-viewer/
 ├── icons/
 │   ├── binance_pay_icon.png
 │   └── binance_pay_icon.ico
+├── screenshots/       # README screenshots
+│   ├── splash.png
+│   ├── main_table.png
+│   ├── export.png
+│   ├── chart.png
+│   └── filters.png
 ├── requirements.txt   # Python dependencies
 ├── .env.example       # Template for API credentials
 ├── .gitignore

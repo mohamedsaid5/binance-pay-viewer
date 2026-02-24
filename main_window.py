@@ -57,6 +57,7 @@ from theme import (
     TEXT,
     BG_PANEL,
     BG_CARD,
+    BG_INPUT,
     BORDER,
 )
 from dialogs import ExportDialog, AdvancedFilterDialog, TransactionDetailDialog
@@ -93,8 +94,11 @@ class MainWindow(QMainWindow):
         self._validated_ids: list[str] = []
         self._usdt_egp: float = USDT_EGP_RATE
         self._updating_dates = False        # guard to prevent signal loops
+        self._last_fetch_time: str = ""
+        self._live_prices: dict[str, float] = {}
 
         self._build_ui()
+        self._build_status_bar()
 
         # Auto-load history on startup
         QTimer.singleShot(300, self._auto_load)
@@ -278,6 +282,48 @@ class MainWindow(QMainWindow):
         self.period_combo.setCurrentText("Last 30 Days")
 
     # ══════════════════════════════════════════════════════════════════════
+    #  STATUS BAR
+    # ══════════════════════════════════════════════════════════════════════
+
+    def _build_status_bar(self):
+        """Create a themed status bar at the bottom of the window."""
+        sb = self.statusBar()
+        sb.setStyleSheet(
+            f"QStatusBar {{ background-color: {BG_CARD}; border-top: 1px solid {BORDER}; }}"
+            f"QStatusBar::item {{ border: none; }}"
+            f"QLabel {{ color: {TEXT_SEC}; font-size: 9pt; padding: 2px 8px; background: transparent; }}"
+        )
+
+        self._sb_count = QLabel("No transactions loaded")
+        self._sb_time = QLabel("")
+        self._sb_rates = QLabel("")
+
+        sb.addWidget(self._sb_count, 1)            # left, stretches
+        sb.addPermanentWidget(self._sb_time)        # right-aligned
+        sb.addPermanentWidget(self._sb_rates)       # right-aligned
+
+    def _update_status_bar(self, tx_count: int = 0, net: float = 0.0):
+        """Refresh the status bar labels."""
+        if tx_count:
+            self._sb_count.setText(
+                f"  {tx_count} transactions  ·  Net: {net:+.2f}"
+            )
+        else:
+            self._sb_count.setText("  No transactions loaded")
+
+        if self._last_fetch_time:
+            self._sb_time.setText(f"Last fetched: {self._last_fetch_time}")
+
+        if self._live_prices:
+            parts = []
+            for sym in ("BNB", "BTC"):
+                p = self._live_prices.get(sym)
+                if p:
+                    parts.append(f"{sym} ${p:,.2f}")
+            if parts:
+                self._sb_rates.setText("  ·  ".join(parts) + "  ")
+
+    # ══════════════════════════════════════════════════════════════════════
     #  PERIOD ↔ DATE SYNC
     # ══════════════════════════════════════════════════════════════════════
 
@@ -394,8 +440,10 @@ class MainWindow(QMainWindow):
 
     def _on_result(self, data: list[dict]):
         self.all_transactions = data
+        self._last_fetch_time = datetime.now().strftime("%H:%M:%S")
         if not data:
             self.total_label.setText("No transactions found.")
+            self._update_status_bar()
             return
 
         if self._validated_ids:
@@ -522,6 +570,7 @@ class MainWindow(QMainWindow):
         self.total_label.setText(
             f"{len(unique)} transactions  ·  Net: {total:+.2f}"
         )
+        self._update_status_bar(len(unique), total)
 
     # ══════════════════════════════════════════════════════════════════════
     #  DETAILS DIALOG
@@ -714,4 +763,6 @@ class MainWindow(QMainWindow):
             if p:
                 prices[sym] = p
         update_prices(prices)
+        self._live_prices = prices
+        self._update_status_bar()
         log.info("Price cache: %s", prices)
