@@ -13,29 +13,62 @@ It fetches your Binance Pay transactions through the official REST API, displays
 
 ## Screenshots
 
+### Splash Screen
+
 <p align="center">
-  <img src="screenshots/splash.png" alt="Splash Screen" width="600">
-  <br><em>Splash screen on startup</em>
+  <img src="screenshots/splash.png" alt="Splash Screen" width="800">
 </p>
+
+<p align="center">
+  <em>Binance-themed loading screen displayed on application startup</em>
+</p>
+
+---
+
+### Main Transaction Table
 
 <p align="center">
   <img src="screenshots/main_table.png" alt="Main Table" width="800">
-  <br><em>Main transaction table with filters</em>
 </p>
 
 <p align="center">
-  <img src="screenshots/export.png" alt="Export Dialog" width="600">
-  <br><em>Export dialog with format and column selection</em>
+  <em>Main window showing transaction history with filters, search, and status bar</em>
 </p>
+
+---
+
+### Export Dialog
+
+<p align="center">
+  <img src="screenshots/export.png" alt="Export Dialog" width="800">
+</p>
+
+<p align="center">
+  <em>Export dialog allowing users to select format (PDF/Excel) and columns to export</em>
+</p>
+
+---
+
+### Chart View
 
 <p align="center">
   <img src="screenshots/chart.png" alt="Chart View" width="800">
-  <br><em>Transaction chart view</em>
 </p>
 
 <p align="center">
-  <img src="screenshots/filters.png" alt="Advanced Filters" width="600">
-  <br><em>Advanced filtering options</em>
+  <em>Interactive line chart displaying transaction amounts over time</em>
+</p>
+
+---
+
+### Advanced Filters
+
+<p align="center">
+  <img src="screenshots/filters.png" alt="Advanced Filters" width="800">
+</p>
+
+<p align="center">
+  <em>Advanced filtering dialog with options for amount range, currency, date, and more</em>
 </p>
 
 ---
