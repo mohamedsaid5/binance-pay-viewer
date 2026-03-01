@@ -13,17 +13,29 @@ It fetches your Binance Pay transactions through the official REST API, displays
 
 ## Screenshots
 
-| Main Table | Export Dialog |
-|:---:|:---:|
-| ![Main Table](screenshots/main_table.png) | ![Export](screenshots/export.png) |
-
-| Chart View | Advanced Filters |
-|:---:|:---:|
-| ![Chart](screenshots/chart.png) | ![Filters](screenshots/filters.png) |
+<p align="center">
+  <img src="screenshots/splash.png" alt="Splash Screen" width="600">
+  <br><em>Splash screen on startup</em>
+</p>
 
 <p align="center">
-  <img src="screenshots/splash.png" alt="Splash Screen" width="300">
-  <br><em>Splash screen on startup</em>
+  <img src="screenshots/main_table.png" alt="Main Table" width="800">
+  <br><em>Main transaction table with filters</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/export.png" alt="Export Dialog" width="600">
+  <br><em>Export dialog with format and column selection</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/chart.png" alt="Chart View" width="800">
+  <br><em>Transaction chart view</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/filters.png" alt="Advanced Filters" width="600">
+  <br><em>Advanced filtering options</em>
 </p>
 
 ---
